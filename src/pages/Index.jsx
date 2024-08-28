@@ -64,9 +64,15 @@ const Index = () => {
           <img src="/assets/Screenshot 2024-08-28 at 17.06.24.png" alt="Background" className="w-full h-full object-cover brightness-120" />
         </motion.div>
         <motion.div 
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 cursor-pointer"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
+          onClick={() => {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+              aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
         >
           <ArrowDown className="text-bright-yellow w-10 h-10" />
         </motion.div>
