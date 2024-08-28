@@ -49,22 +49,22 @@ const Index = () => {
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-sky-400 md:bg-transparent">
         <div className="absolute inset-0 bg-black opacity-20 z-10 hidden md:block"></div>
         <div className="container mx-auto px-4 z-30 relative">
-          {showHeroOverlay && (
-            <div className="text-center md:text-left md:bg-black md:bg-opacity-50 md:p-8 md:rounded-lg relative">
+          <div className={`text-center md:text-left ${showHeroOverlay ? 'md:bg-black md:bg-opacity-50 md:p-8 md:rounded-lg' : ''} relative`}>
+            {showHeroOverlay && (
               <button
                 className="absolute top-2 right-2 text-bright-yellow hover:text-white transition-colors hidden md:block"
                 onClick={() => setShowHeroOverlay(false)}
               >
                 <X size={24} />
               </button>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-bright-yellow text-shadow-lg">START-UP CENTURY OUT NOW</h1>
-              <p className="text-xl md:text-3xl mb-6 text-bright-yellow text-shadow-md max-w-3xl">START-UP CENTURY: WHY WE'RE ALL BECOMING ENTREPRENEURS AND HOW TO MAKE IT WORK FOR EVERYONE</p>
-              <p className="text-lg md:text-xl mb-10 text-bright-yellow text-shadow-md">By James Wise</p>
-              <Button className="bg-bright-yellow text-sky-800 hover:bg-yellow-300 text-xl px-8 py-4 font-semibold" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>
-                Buy the book <ArrowRight className="ml-2" />
-              </Button>
-            </div>
-          )}
+            )}
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-bright-yellow text-shadow-lg">START-UP CENTURY OUT NOW</h1>
+            <p className="text-xl md:text-3xl mb-6 text-bright-yellow text-shadow-md max-w-3xl">START-UP CENTURY: WHY WE'RE ALL BECOMING ENTREPRENEURS AND HOW TO MAKE IT WORK FOR EVERYONE</p>
+            <p className="text-lg md:text-xl mb-10 text-bright-yellow text-shadow-md">By James Wise</p>
+            <Button className="bg-bright-yellow text-sky-800 hover:bg-yellow-300 text-xl px-8 py-4 font-semibold" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>
+              Buy the book <ArrowRight className="ml-2" />
+            </Button>
+          </div>
         </div>
         <div className="absolute inset-0 z-0 hidden md:block">
           <img src="/assets/Screenshot 2024-08-28 at 17.06.24.png" alt="Background" className="w-full h-full object-cover" />
