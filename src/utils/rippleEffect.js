@@ -1,7 +1,7 @@
 export function createWaves(element) {
   const waveCount = 6;
   const waves = [];
-  const lagFactors = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]; // Different lag factors for each wave
+  const lagFactors = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3]; // Reduced lag factors for smoother trailing
 
   for (let i = 0; i < waveCount; i++) {
     const wave = document.createElement('div');
@@ -12,10 +12,10 @@ export function createWaves(element) {
 
   function animateWaves(targetX, targetY) {
     waves.forEach((wave, index) => {
-      const size = (index + 1) * 10;
+      const size = (index + 1) * 15; // Increased size for better visibility
       const lagFactor = lagFactors[index];
 
-      // Update wave position with lag
+      // Update wave position with enhanced lag
       wave.x += (targetX - wave.x - size / 2) * lagFactor;
       wave.y += (targetY - wave.y - size / 2) * lagFactor;
 
@@ -23,6 +23,7 @@ export function createWaves(element) {
       wave.element.style.top = `${wave.y}px`;
       wave.element.style.width = `${size}px`;
       wave.element.style.height = `${size}px`;
+      wave.element.style.opacity = 1 - (index / waveCount); // Fade out smaller waves
     });
   }
 
