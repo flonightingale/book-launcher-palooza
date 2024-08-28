@@ -11,7 +11,7 @@ const Index = () => {
           <h1 className="text-2xl font-bold">START-UP CENTURY</h1>
           <div>
             <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 mr-2">Chat with the book</Button>
-            <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200">Buy the book!</Button>
+            <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book!</Button>
           </div>
         </div>
       </header>
@@ -21,7 +21,7 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-6xl md:text-8xl font-bold mb-8">START-UP CENTURY OUT NOW</h1>
           <p className="text-2xl md:text-4xl mb-12">START-UP CENTURY: WHY WE'RE ALL BECOMING ENTREPRENEURS AND HOW TO MAKE IT WORK FOR EVERYONE</p>
-          <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 text-xl px-8 py-4">Buy the book</Button>
+          <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 text-xl px-8 py-4" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book</Button>
         </div>
       </section>
 
@@ -124,7 +124,7 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Shape the Future?</h2>
           <p className="text-xl mb-8">Get your copy of "Start-Up Century" today and embark on your entrepreneurial journey.</p>
-          <Button className="bg-sky-400 text-bright-yellow hover:bg-sky-500">Order Now</Button>
+          <Button className="bg-sky-400 text-bright-yellow hover:bg-sky-500" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Order Now</Button>
         </div>
       </section>
 
