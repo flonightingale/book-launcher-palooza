@@ -2,28 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import "../styles/waveAnimation.css";
-import { createRipple } from "../utils/rippleEffect";
+import { createRipples } from "../utils/rippleEffect";
 
 const Index = () => {
   const rippleContainerRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (event) => {
-      if (rippleContainerRef.current) {
-        createRipple(event, rippleContainerRef.current);
-      }
-    };
-
-    const container = rippleContainerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
+    if (rippleContainerRef.current) {
+      createRipples(rippleContainerRef.current);
     }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('mousemove', handleMouseMove);
-      }
-    };
   }, []);
 
   return (
