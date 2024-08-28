@@ -15,15 +15,15 @@
 .ripple {
   position: absolute;
   border-radius: 50%;
-  background: rgba(0, 0, 139, 0.2); /* Dark blue with low opacity */
-  animation: ripple-animation 4s ease-out infinite;
+  background: rgba(0, 0, 139, 0.4); /* Darker blue with higher opacity */
+  animation: ripple-animation 3s ease-out infinite;
   pointer-events: none;
 }
 
 @keyframes ripple-animation {
   0% {
     transform: scale(0);
-    opacity: 0.5;
+    opacity: 0.8;
   }
   100% {
     transform: scale(1);
