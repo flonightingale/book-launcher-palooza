@@ -46,7 +46,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+        <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
         <motion.div style={{ opacity, scale, y }} className="text-center z-30 relative px-4">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-bright-yellow text-shadow-lg">START-UP CENTURY</h1>
           <p className="text-xl md:text-3xl mb-6 text-white text-shadow-md max-w-3xl mx-auto">Why we're all becoming entrepreneurs — and how to make it work for everyone</p>
@@ -61,7 +61,7 @@ const Index = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <img src="/assets/Screenshot 2024-08-28 at 17.06.24.png" alt="Background" className="w-full h-full object-cover brightness-110" />
+          <img src="/assets/Screenshot 2024-08-28 at 17.06.24.png" alt="Background" className="w-full h-full object-cover brightness-120" />
         </motion.div>
         <motion.div 
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30"
