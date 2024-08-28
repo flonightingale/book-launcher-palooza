@@ -72,9 +72,9 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <motion.img 
-                src="/assets/start-up-century-cover.jpg" 
+                src="/assets/Book cover.jpg" 
                 alt="Start-Up Century Book Cover" 
-                className="w-full max-w-sm mx-auto shadow-2xl"
+                className="w-full max-w-md mx-auto shadow-2xl rounded-lg"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
