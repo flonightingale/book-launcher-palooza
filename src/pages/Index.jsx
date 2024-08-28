@@ -10,7 +10,6 @@ const Index = () => {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">START-UP CENTURY</h1>
           <div>
-            <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 mr-2">Chat with the book</Button>
             <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book!</Button>
           </div>
         </div>
