@@ -98,7 +98,7 @@ const Index = () => {
             </Card>
             <Card className="bg-sky-400 border-bright-yellow border-2">
               <CardContent className="p-6">
-                <p className="text-white italic mb-4">"A PASSIONATE BOOK DEFENDING ENTREPRENEURSHIP AND EXPLAINING THE CHALLENGES AND OPPORTUNITIES THEY FACE"</p>
+                <p className="text-white italic mb-4">"A passionate defense of entreprenuership and the challenges we face"</p>
                 <p className="text-bright-yellow font-semibold">Hiroki Takuchi, Founder & CEO of GoCardless</p>
               </CardContent>
             </Card>
