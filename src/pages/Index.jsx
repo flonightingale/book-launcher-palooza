@@ -53,26 +53,38 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="bg-sky-400 border-yellow-300 border-2">
               <CardContent className="p-6">
-                <p className="text-white italic mb-4">"A must-read for anyone interested in the future of business and entrepreneurship. Wise's insights are both profound and practical."</p>
-                <p className="text-yellow-300 font-semibold">- The Financial Times</p>
+                <p className="text-white italic mb-4">"This brilliant book is essential reading for anyone wanting to understand why….we are all entrepreneurs now"</p>
+                <p className="text-yellow-300 font-semibold">Martha Lane-Fox, Chancellor of The Open University, Board Member of Chanel and Twitter</p>
               </CardContent>
             </Card>
             <Card className="bg-sky-400 border-yellow-300 border-2">
               <CardContent className="p-6">
-                <p className="text-white italic mb-4">"Start-Up Century offers a compelling vision of our entrepreneurial future. It's not just a book, it's a roadmap for success in the digital age."</p>
-                <p className="text-yellow-300 font-semibold">- Tech Innovators Magazine</p>
+                <p className="text-white italic mb-4">"We need more entrepreneurs, risk-takers and wealth creators. This vital book is packed with good ideas that will help budding entrepreneurs succeed."</p>
+                <p className="text-yellow-300 font-semibold">Sir James Dyson, Chief Engineer and Founder of Dyson</p>
               </CardContent>
             </Card>
             <Card className="bg-sky-400 border-yellow-300 border-2">
               <CardContent className="p-6">
-                <p className="text-white italic mb-4">"James Wise has crafted an essential guide for navigating the complexities of modern entrepreneurship. This book is filled with actionable insights and inspiring stories."</p>
-                <p className="text-yellow-300 font-semibold">- Entrepreneurship Today</p>
+                <p className="text-white italic mb-4">"The next few decades will be driven by builders rather than big companies. Start-Up Century shows why."</p>
+                <p className="text-yellow-300 font-semibold">Mustafa Suleyman, CEO of Microsoft AI and Co-Founder of DeepMind</p>
               </CardContent>
             </Card>
             <Card className="bg-sky-400 border-yellow-300 border-2">
               <CardContent className="p-6">
-                <p className="text-white italic mb-4">"A thought-provoking exploration of how startups are reshaping our world. Wise's perspective is both enlightening and empowering."</p>
-                <p className="text-yellow-300 font-semibold">- Global Business Review</p>
+                <p className="text-white italic mb-4">"James argues insightfully why, today more than ever, is the time to start up and what governments and institutions do to support the self-employed"</p>
+                <p className="text-yellow-300 font-semibold">Maria Raga, Former CEO, Depop.com</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-sky-400 border-yellow-300 border-2">
+              <CardContent className="p-6">
+                <p className="text-white italic mb-4">"A PASSIONATE BOOK DEFENDING ENTREPRENEURSHIP AND EXPLAINING THE CHALLENGES AND OPPORTUNITIES THEY FACE"</p>
+                <p className="text-yellow-300 font-semibold">Hiroki Takuchi, Founder & CEO of GoCardless</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-sky-400 border-yellow-300 border-2">
+              <CardContent className="p-6">
+                <p className="text-white italic mb-4">"In Start-Up Century, James captures the forces at play to empower people with ideas to build."</p>
+                <p className="text-yellow-300 font-semibold">Scott Belsky, Founder of Behance, Author of the Messy Middle</p>
               </CardContent>
             </Card>
           </div>
