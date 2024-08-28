@@ -46,6 +46,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-16 bg-sky-300">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center text-yellow-300">What People Are Saying</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="bg-sky-400 border-yellow-300 border-2">
+              <CardContent className="p-6">
+                <p className="text-white italic mb-4">"A must-read for anyone interested in the future of business and entrepreneurship. Wise's insights are both profound and practical."</p>
+                <p className="text-yellow-300 font-semibold">- The Financial Times</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-sky-400 border-yellow-300 border-2">
+              <CardContent className="p-6">
+                <p className="text-white italic mb-4">"Start-Up Century offers a compelling vision of our entrepreneurial future. It's not just a book, it's a roadmap for success in the digital age."</p>
+                <p className="text-yellow-300 font-semibold">- Tech Innovators Magazine</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-sky-400 border-yellow-300 border-2">
+              <CardContent className="p-6">
+                <p className="text-white italic mb-4">"James Wise has crafted an essential guide for navigating the complexities of modern entrepreneurship. This book is filled with actionable insights and inspiring stories."</p>
+                <p className="text-yellow-300 font-semibold">- Entrepreneurship Today</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-sky-400 border-yellow-300 border-2">
+              <CardContent className="p-6">
+                <p className="text-white italic mb-4">"A thought-provoking exploration of how startups are reshaping our world. Wise's perspective is both enlightening and empowering."</p>
+                <p className="text-yellow-300 font-semibold">- Global Business Review</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Author Section */}
       <section className="bg-sky-400 py-16">
         <div className="container mx-auto px-4">
