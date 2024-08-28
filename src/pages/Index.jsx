@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { ArrowRight, ArrowDown, X } from "lucide-react";
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -98,18 +98,53 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center">What People Are Saying</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div 
-                key={index}
-                className="bg-sky-300 p-6 rounded-lg shadow-lg"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <p className="text-xl italic mb-4">{testimonial.quote}</p>
-                <p className="font-semibold">{testimonial.author}</p>
-              </motion.div>
-            ))}
+            {testimonials.map((testimonial, index) => {
+              const [isExpanded, setIsExpanded] = useState(false);
+              return (
+                <motion.div 
+                  key={index}
+                  className={`bg-sky-300 p-6 rounded-lg shadow-lg cursor-pointer relative ${isExpanded ? 'z-10' : ''}`}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => setIsExpanded(!isExpanded)}
+                >
+                  <AnimatePresence>
+                    {isExpanded ? (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <motion.div
+                          className="bg-sky-300 p-8 rounded-lg shadow-xl max-w-2xl w-full m-4 relative"
+                          initial={{ scale: 0.9, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0.9, opacity: 0 }}
+                        >
+                          <button
+                            className="absolute top-2 right-2 text-sky-600 hover:text-sky-800"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setIsExpanded(false);
+                            }}
+                          >
+                            <X size={24} />
+                          </button>
+                          <p className="text-2xl italic mb-6">{testimonial.quote}</p>
+                          <p className="text-xl font-semibold">{testimonial.author}</p>
+                        </motion.div>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                  <p className="text-xl italic mb-4">{testimonial.quote.length > 100 ? `${testimonial.quote.substring(0, 100)}...` : testimonial.quote}</p>
+                  <p className="font-semibold">{testimonial.author}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
