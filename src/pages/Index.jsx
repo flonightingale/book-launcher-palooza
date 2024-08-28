@@ -33,13 +33,25 @@ const Index = () => {
             <Card className="bg-sky-400 border-bright-yellow border-2">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-bright-yellow">The Entrepreneurial Revolution</h3>
-                <p className="text-white">Explore how startups are reshaping industries and driving innovation across the globe.</p>
+                <p className="text-white">Discover why we're all becoming entrepreneurs in the 21st century and how this shift is reshaping our economy and society.</p>
               </CardContent>
             </Card>
             <Card className="bg-sky-400 border-bright-yellow border-2">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Future-Proof Strategies</h3>
-                <p className="text-white">Learn actionable strategies to thrive in the rapidly evolving business landscape of the 21st century.</p>
+                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Navigating the New Economy</h3>
+                <p className="text-white">Learn how to thrive in a world where traditional jobs are disappearing and entrepreneurship is becoming the norm.</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-sky-400 border-bright-yellow border-2">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Empowering All Entrepreneurs</h3>
+                <p className="text-white">Explore strategies to make entrepreneurship work for everyone, regardless of background or resources.</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-sky-400 border-bright-yellow border-2">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Future-Proof Your Career</h3>
+                <p className="text-white">Gain insights on how to adapt and succeed in a rapidly evolving business landscape driven by technology and innovation.</p>
               </CardContent>
             </Card>
           </div>
