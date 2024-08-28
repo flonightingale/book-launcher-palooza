@@ -27,11 +27,11 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="bg-cover bg-center text-bright-yellow py-20 relative overflow-hidden" style={{ backgroundImage: "url('/assets/background.png')" }} ref={waveContainerRef}>
-        <div className="absolute inset-0 bg-sky-400 opacity-70"></div>
+        <div className="absolute inset-0 bg-sky-400 opacity-50"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-6xl md:text-8xl font-bold mb-8">START-UP CENTURY OUT NOW</h1>
-          <p className="text-2xl md:text-4xl mb-12">START-UP CENTURY: WHY WE'RE ALL BECOMING ENTREPRENEURS AND HOW TO MAKE IT WORK FOR EVERYONE</p>
-          <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 text-xl px-8 py-4" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book</Button>
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 text-shadow-lg">START-UP CENTURY OUT NOW</h1>
+          <p className="text-2xl md:text-4xl mb-12 text-shadow-md">START-UP CENTURY: WHY WE'RE ALL BECOMING ENTREPRENEURS AND HOW TO MAKE IT WORK FOR EVERYONE</p>
+          <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 text-xl px-8 py-4 shadow-lg" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book</Button>
         </div>
       </section>
 
