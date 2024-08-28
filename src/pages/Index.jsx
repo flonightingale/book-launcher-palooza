@@ -33,7 +33,10 @@ const Index = () => {
             </button>
           </div>
           <nav className={`md:flex ${isMenuOpen ? 'block' : 'hidden'} md:items-center`}>
-            <a href="#about" className="block md:inline-block mt-4 md:mt-0 md:ml-6">About</a>
+            <a href="#about" className="block md:inline-block mt-4 md:mt-0 md:ml-6" onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+            }}>About</a>
             <a href="#testimonials" className="block md:inline-block mt-4 md:mt-0 md:ml-6">Testimonials</a>
             <a href="#author" className="block md:inline-block mt-4 md:mt-0 md:ml-6">Author</a>
             <Button className="mt-4 md:mt-0 md:ml-6 bg-bright-yellow text-sky-400 hover:bg-yellow-200" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book</Button>
@@ -70,7 +73,7 @@ const Index = () => {
       </section>
 
       {/* Book Preview Section */}
-      <section className="py-20 bg-sky-300">
+      <section id="about" className="py-20 bg-sky-300">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
