@@ -30,25 +30,25 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center text-bright-yellow">About the Book</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-sky-400 border-bright-yellow border-2">
+            <Card className="bg-sky-400 border-bright-yellow border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-bright-yellow">The Rise of Entrepreneurship</h3>
                 <p className="text-white">Explore why new businesses are being launched in record numbers and how technologies like AI and automation are fueling this trend.</p>
               </CardContent>
             </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2">
+            <Card className="bg-sky-400 border-bright-yellow border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-bright-yellow">The Future of Work</h3>
                 <p className="text-white">Discover what it means to live in a world where most people are self-employed or work in small entrepreneurial endeavors.</p>
               </CardContent>
             </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2">
+            <Card className="bg-sky-400 border-bright-yellow border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Entrepreneurial Frontiers</h3>
                 <p className="text-white">Learn about opportunities in robotics, healthcare, energy, and construction, and how start-ups will solve 21st-century challenges.</p>
               </CardContent>
             </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2">
+            <Card className="bg-sky-400 border-bright-yellow border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Adapting to Change</h3>
                 <p className="text-white">Understand the policy changes needed to support entrepreneurs and how to make education and public services more innovative.</p>
