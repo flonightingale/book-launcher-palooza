@@ -5,7 +5,8 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({ container: scrollRef });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
@@ -20,7 +21,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-sky-400 text-bright-yellow">
+    <div ref={scrollRef} className="min-h-screen bg-sky-400 text-bright-yellow overflow-y-auto">
       {/* Header */}
       <header className="fixed w-full z-50 bg-sky-400 py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
