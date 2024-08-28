@@ -44,8 +44,9 @@ const Index = () => {
       {/* Hero Section */}
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
         <motion.div style={{ opacity, scale, y }} className="text-center z-10">
-          <h1 className="text-6xl md:text-8xl font-bold mb-8">START-UP CENTURY</h1>
-          <p className="text-2xl md:text-4xl mb-12">Why we're all becoming entrepreneurs — and how to make it work for everyone</p>
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 text-bright-yellow text-shadow-lg">START-UP CENTURY</h1>
+          <p className="text-2xl md:text-4xl mb-8 text-bright-yellow text-shadow-md">Why we're all becoming entrepreneurs — and how to make it work for everyone</p>
+          <p className="text-xl md:text-2xl mb-12 text-bright-yellow text-shadow-md">By James Wise</p>
           <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 text-xl px-8 py-4" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>
             Buy the book <ArrowRight className="ml-2" />
           </Button>
