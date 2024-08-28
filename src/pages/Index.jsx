@@ -1,6 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import "../styles/waveAnimation.css";
 import { createWaves } from "../utils/rippleEffect";
 
@@ -71,45 +78,61 @@ const Index = () => {
       {/* Testimonials Section */}
       <section className="py-16 bg-sky-300">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center text-bright-yellow">What People Are Saying</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-sky-400 border-bright-yellow border-2">
-              <CardContent className="p-6">
-                <p className="text-white italic mb-4">"This brilliant book is essential reading for anyone wanting to understand why….we are all entrepreneurs now"</p>
-                <p className="text-bright-yellow font-semibold">Martha Lane-Fox, Chancellor of The Open University, Board Member of Chanel and Twitter</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2">
-              <CardContent className="p-6">
-                <p className="text-white italic mb-4">"We need more entrepreneurs, risk-takers and wealth creators. This vital book is packed with good ideas that will help budding entrepreneurs succeed."</p>
-                <p className="text-bright-yellow font-semibold">Sir James Dyson, Chief Engineer and Founder of Dyson</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2">
-              <CardContent className="p-6">
-                <p className="text-white italic mb-4">"The next few decades will be driven by builders rather than big companies. Start-Up Century shows why."</p>
-                <p className="text-bright-yellow font-semibold">Mustafa Suleyman, CEO of Microsoft AI and Co-Founder of DeepMind</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2">
-              <CardContent className="p-6">
-                <p className="text-white italic mb-4">"James argues insightfully why, today more than ever, is the time to start up and what governments and institutions do to support the self-employed"</p>
-                <p className="text-bright-yellow font-semibold">Maria Raga, Former CEO, Depop.com</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2">
-              <CardContent className="p-6">
-                <p className="text-white italic mb-4">"A passionate defense of entreprenuership and the challenges we face"</p>
-                <p className="text-bright-yellow font-semibold">Hiroki Takuchi, Founder & CEO of GoCardless</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2">
-              <CardContent className="p-6">
-                <p className="text-white italic mb-4">"In Start-Up Century, James captures the forces at play to empower people with ideas to build."</p>
-                <p className="text-bright-yellow font-semibold">Scott Belsky, Founder of Behance, Author of the Messy Middle</p>
-              </CardContent>
-            </Card>
-          </div>
+          <h2 className="text-4xl font-bold mb-12 text-center text-bright-yellow">What People Are Saying</h2>
+          <Carousel className="w-full max-w-4xl mx-auto">
+            <CarouselContent>
+              <CarouselItem>
+                <Card className="bg-sky-400 border-bright-yellow border-4">
+                  <CardContent className="p-10">
+                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"This brilliant book is essential reading for anyone wanting to understand why….we are all entrepreneurs now"</p>
+                    <p className="text-bright-yellow font-semibold text-xl">Martha Lane-Fox, Chancellor of The Open University, Board Member of Chanel and Twitter</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="bg-sky-400 border-bright-yellow border-4">
+                  <CardContent className="p-10">
+                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"We need more entrepreneurs, risk-takers and wealth creators. This vital book is packed with good ideas that will help budding entrepreneurs succeed."</p>
+                    <p className="text-bright-yellow font-semibold text-xl">Sir James Dyson, Chief Engineer and Founder of Dyson</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="bg-sky-400 border-bright-yellow border-4">
+                  <CardContent className="p-10">
+                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"The next few decades will be driven by builders rather than big companies. Start-Up Century shows why."</p>
+                    <p className="text-bright-yellow font-semibold text-xl">Mustafa Suleyman, CEO of Microsoft AI and Co-Founder of DeepMind</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="bg-sky-400 border-bright-yellow border-4">
+                  <CardContent className="p-10">
+                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"James argues insightfully why, today more than ever, is the time to start up and what governments and institutions do to support the self-employed"</p>
+                    <p className="text-bright-yellow font-semibold text-xl">Maria Raga, Former CEO, Depop.com</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="bg-sky-400 border-bright-yellow border-4">
+                  <CardContent className="p-10">
+                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"A passionate defense of entreprenuership and the challenges we face"</p>
+                    <p className="text-bright-yellow font-semibold text-xl">Hiroki Takuchi, Founder & CEO of GoCardless</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="bg-sky-400 border-bright-yellow border-4">
+                  <CardContent className="p-10">
+                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"In Start-Up Century, James captures the forces at play to empower people with ideas to build."</p>
+                    <p className="text-bright-yellow font-semibold text-xl">Scott Belsky, Founder of Behance, Author of the Messy Middle</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="text-bright-yellow hover:text-sky-400 hover:bg-bright-yellow" />
+            <CarouselNext className="text-bright-yellow hover:text-sky-400 hover:bg-bright-yellow" />
+          </Carousel>
         </div>
       </section>
 
