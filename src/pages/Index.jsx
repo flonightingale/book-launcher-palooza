@@ -32,26 +32,26 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="bg-sky-400 border-bright-yellow border-2">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">The Entrepreneurial Revolution</h3>
-                <p className="text-white">Discover why we're all becoming entrepreneurs in the 21st century and how this shift is reshaping our economy and society.</p>
+                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">The Rise of Entrepreneurship</h3>
+                <p className="text-white">Explore why new businesses are being launched in record numbers and how technologies like AI and automation are fueling this trend.</p>
               </CardContent>
             </Card>
             <Card className="bg-sky-400 border-bright-yellow border-2">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Navigating the New Economy</h3>
-                <p className="text-white">Learn how to thrive in a world where traditional jobs are disappearing and entrepreneurship is becoming the norm.</p>
+                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">The Future of Work</h3>
+                <p className="text-white">Discover what it means to live in a world where most people are self-employed or work in small entrepreneurial endeavors.</p>
               </CardContent>
             </Card>
             <Card className="bg-sky-400 border-bright-yellow border-2">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Empowering All Entrepreneurs</h3>
-                <p className="text-white">Explore strategies to make entrepreneurship work for everyone, regardless of background or resources.</p>
+                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Entrepreneurial Frontiers</h3>
+                <p className="text-white">Learn about opportunities in robotics, healthcare, energy, and construction, and how start-ups will solve 21st-century challenges.</p>
               </CardContent>
             </Card>
             <Card className="bg-sky-400 border-bright-yellow border-2">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Future-Proof Your Career</h3>
-                <p className="text-white">Gain insights on how to adapt and succeed in a rapidly evolving business landscape driven by technology and innovation.</p>
+                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Adapting to Change</h3>
+                <p className="text-white">Understand the policy changes needed to support entrepreneurs and how to make education and public services more innovative.</p>
               </CardContent>
             </Card>
           </div>
