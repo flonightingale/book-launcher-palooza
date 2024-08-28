@@ -51,11 +51,12 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/3 mb-8 md:mb-0">
-              <img src="https://www.startup-century.com/assets/author.jpg" alt="Author" className="rounded-full mx-auto object-cover w-48 h-48 border-4 border-yellow-300" />
+              <img src="/assets/james-wise-headshot.jpg" alt="James Wise" className="rounded-full mx-auto object-cover w-48 h-48 border-4 border-yellow-300" />
             </div>
             <div className="md:w-2/3">
               <h2 className="text-3xl font-bold mb-4 text-yellow-300">About the Author</h2>
-              <p className="text-lg mb-4 text-white">John Doe is a renowned entrepreneur and thought leader in the startup ecosystem. With over 20 years of experience founding and scaling successful companies, John brings a wealth of knowledge and insights to "Start-Up Century".</p>
+              <p className="text-lg mb-6 text-white">James Wise has worked with some of the most successful technology companies of the last decade. As a venture capitalist and Partner at Balderton, a fund that's backed over 20 'unicorn' start-ups, he has supported entrepreneurs as they've grown from their living rooms to Nasdaq IPOs.</p>
+              <p className="text-lg mb-6 text-white">He sits on the board of companies focused on the global challenges of sustainability, artificial intelligence and healthcare. James is a member of the UK Government's Industrial Development Advisory Board, a trustee of the charity Demos and has written and contributed widely for publications like The Times, The Guardian, The Telegraph and the BBC.</p>
             </div>
           </div>
         </div>
