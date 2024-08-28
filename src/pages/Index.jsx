@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import "../styles/waveAnimation.css";
+import { createRipple } from "../utils/rippleEffect";
 
 const Index = () => {
+  const rippleContainerRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      if (rippleContainerRef.current) {
+        createRipple(event, rippleContainerRef.current);
+      }
+    };
+
+    const container = rippleContainerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-sky-400">
       {/* Header */}
@@ -17,7 +39,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-sky-400 text-bright-yellow py-20 ripple-container">
+      <section className="bg-sky-400 text-bright-yellow py-20 ripple-container" ref={rippleContainerRef}>
         <div className="ripple-background"></div>
         <div className="ripple-overlay"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
