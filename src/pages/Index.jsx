@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import "../styles/waveAnimation.css";
-import { createRipples } from "../utils/rippleEffect";
+import { createWaves } from "../utils/rippleEffect";
 
 const Index = () => {
-  const rippleContainerRef = useRef(null);
+  const waveContainerRef = useRef(null);
 
   useEffect(() => {
-    if (rippleContainerRef.current) {
-      createRipples(rippleContainerRef.current);
+    if (waveContainerRef.current) {
+      createWaves(waveContainerRef.current);
     }
   }, []);
 
@@ -26,9 +26,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-sky-400 text-bright-yellow py-20 ripple-container relative overflow-hidden" ref={rippleContainerRef}>
-        <div className="ripple-background absolute inset-0"></div>
-        <div className="ripple-overlay absolute inset-0"></div>
+      <section className="bg-sky-400 text-bright-yellow py-20 relative overflow-hidden" ref={waveContainerRef}>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-6xl md:text-8xl font-bold mb-8">START-UP CENTURY OUT NOW</h1>
           <p className="text-2xl md:text-4xl mb-12">START-UP CENTURY: WHY WE'RE ALL BECOMING ENTREPRENEURS AND HOW TO MAKE IT WORK FOR EVERYONE</p>
