@@ -1,188 +1,163 @@
-import React, { useEffect, useRef } from 'react';
-import { useRef as useRefFromReact } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import "../styles/waveAnimation.css";
-import { createWaves } from "../utils/rippleEffect";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
 const Index = () => {
-  const waveContainerRef = useRefFromReact(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
 
-  useEffect(() => {
-    if (waveContainerRef.current) {
-      createWaves(waveContainerRef.current);
-    }
-  }, []);
+  const testimonials = [
+    { quote: "This brilliant book is essential reading for anyone wanting to understand why….we are all entrepreneurs now", author: "Martha Lane-Fox, Chancellor of The Open University, Board Member of Chanel and Twitter" },
+    { quote: "We need more entrepreneurs, risk-takers and wealth creators. This vital book is packed with good ideas that will help budding entrepreneurs succeed.", author: "Sir James Dyson, Chief Engineer and Founder of Dyson" },
+    { quote: "The next few decades will be driven by builders rather than big companies. Start-Up Century shows why.", author: "Mustafa Suleyman, CEO of Microsoft AI and Co-Founder of DeepMind" },
+    { quote: "James argues insightfully why, today more than ever, is the time to start up and what governments and institutions do to support the self-employed", author: "Maria Raga, Former CEO, Depop.com" },
+    { quote: "A passionate defense of entreprenuership and the challenges we face", author: "Hiroki Takuchi, Founder & CEO of GoCardless" },
+    { quote: "In Start-Up Century, James captures the forces at play to empower people with ideas to build.", author: "Scott Belsky, Founder of Behance, Author of the Messy Middle" },
+  ];
 
   return (
-    <div className="min-h-screen bg-sky-400">
+    <div className="min-h-screen bg-sky-400 text-bright-yellow">
       {/* Header */}
-      <header className="bg-sky-400 text-bright-yellow py-4">
+      <header className="fixed w-full z-50 bg-sky-400 py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">START-UP CENTURY</h1>
-          <div>
-            <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book!</Button>
+          <div className="md:hidden">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-bright-yellow">
+              {isMenuOpen ? 'Close' : 'Menu'}
+            </button>
           </div>
+          <nav className={`md:flex ${isMenuOpen ? 'block' : 'hidden'} md:items-center`}>
+            <a href="#about" className="block md:inline-block mt-4 md:mt-0 md:ml-6">About</a>
+            <a href="#testimonials" className="block md:inline-block mt-4 md:mt-0 md:ml-6">Testimonials</a>
+            <a href="#author" className="block md:inline-block mt-4 md:mt-0 md:ml-6">Author</a>
+            <Button className="mt-4 md:mt-0 md:ml-6 bg-bright-yellow text-sky-400 hover:bg-yellow-200" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book</Button>
+          </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-cover bg-center text-bright-yellow py-20 relative overflow-hidden" style={{ backgroundImage: "url('/assets/background.png')" }} ref={waveContainerRef}>
-        <div className="absolute inset-0 bg-sky-400 opacity-50"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 text-shadow-lg">START-UP CENTURY OUT NOW</h1>
-          <p className="text-2xl md:text-4xl mb-12 text-shadow-md">START-UP CENTURY: WHY WE'RE ALL BECOMING ENTREPRENEURS AND HOW TO MAKE IT WORK FOR EVERYONE</p>
-          <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 text-xl px-8 py-4 shadow-lg" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Buy the book</Button>
-        </div>
+      <section className="h-screen flex items-center justify-center relative overflow-hidden">
+        <motion.div style={{ opacity, scale, y }} className="text-center z-10">
+          <h1 className="text-6xl md:text-8xl font-bold mb-8">START-UP CENTURY</h1>
+          <p className="text-2xl md:text-4xl mb-12">Why we're all becoming entrepreneurs — and how to make it work for everyone</p>
+          <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 text-xl px-8 py-4" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>
+            Buy the book <ArrowRight className="ml-2" />
+          </Button>
+        </motion.div>
+        <motion.div 
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <img src="/assets/background.png" alt="Background" className="w-full h-full object-cover" />
+        </motion.div>
+        <motion.div 
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+        >
+          <ArrowDown className="text-bright-yellow w-10 h-10" />
+        </motion.div>
       </section>
 
-      {/* About the Book */}
-      <section className="py-16 bg-sky-300">
+      {/* Book Preview Section */}
+      <section className="py-20 bg-sky-300">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center text-bright-yellow">About the Book</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-sky-400 border-bright-yellow border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">The Rise of Entrepreneurship</h3>
-                <p className="text-white">Explore why new businesses are being launched in record numbers and how technologies like AI and automation are fueling this trend.</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">The Future of Work</h3>
-                <p className="text-white">Discover what it means to live in a world where most people are self-employed or work in small entrepreneurial endeavors.</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Entrepreneurial Frontiers</h3>
-                <p className="text-white">Learn about opportunities in robotics, healthcare, energy, and construction, and how start-ups will solve 21st-century challenges.</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-sky-400 border-bright-yellow border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-bright-yellow">Adapting to Change</h3>
-                <p className="text-white">Understand the policy changes needed to support entrepreneurs and how to make education and public services more innovative.</p>
-              </CardContent>
-            </Card>
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2 mb-8 md:mb-0">
+              <motion.img 
+                src="/assets/james-wise-headshot.jpg" 
+                alt="Start-Up Century Book Cover" 
+                className="w-full max-w-md mx-auto shadow-2xl"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
+            <div className="md:w-1/2 md:pl-12">
+              <h2 className="text-4xl font-bold mb-6">About the Book</h2>
+              <p className="text-xl mb-6">Explore why new businesses are being launched in record numbers and how technologies like AI and automation are fueling this trend.</p>
+              <p className="text-xl mb-6">Discover what it means to live in a world where most people are self-employed or work in small entrepreneurial endeavors.</p>
+              <p className="text-xl mb-6">Learn about opportunities in robotics, healthcare, energy, and construction, and how start-ups will solve 21st-century challenges.</p>
+              <Button className="bg-bright-yellow text-sky-400 hover:bg-yellow-200 text-xl px-8 py-4" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>
+                Get Your Copy <ArrowRight className="ml-2" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-sky-300">
+      <section id="testimonials" className="py-20 bg-sky-400">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center text-bright-yellow">What People Are Saying</h2>
-          <Carousel className="w-full max-w-4xl mx-auto">
-            <CarouselContent>
-              <CarouselItem>
-                <Card className="bg-sky-400 border-bright-yellow border-4">
-                  <CardContent className="p-10">
-                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"This brilliant book is essential reading for anyone wanting to understand why….we are all entrepreneurs now"</p>
-                    <p className="text-bright-yellow font-semibold text-xl">Martha Lane-Fox, Chancellor of The Open University, Board Member of Chanel and Twitter</p>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-              <CarouselItem>
-                <Card className="bg-sky-400 border-bright-yellow border-4">
-                  <CardContent className="p-10">
-                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"We need more entrepreneurs, risk-takers and wealth creators. This vital book is packed with good ideas that will help budding entrepreneurs succeed."</p>
-                    <p className="text-bright-yellow font-semibold text-xl">Sir James Dyson, Chief Engineer and Founder of Dyson</p>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-              <CarouselItem>
-                <Card className="bg-sky-400 border-bright-yellow border-4">
-                  <CardContent className="p-10">
-                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"The next few decades will be driven by builders rather than big companies. Start-Up Century shows why."</p>
-                    <p className="text-bright-yellow font-semibold text-xl">Mustafa Suleyman, CEO of Microsoft AI and Co-Founder of DeepMind</p>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-              <CarouselItem>
-                <Card className="bg-sky-400 border-bright-yellow border-4">
-                  <CardContent className="p-10">
-                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"James argues insightfully why, today more than ever, is the time to start up and what governments and institutions do to support the self-employed"</p>
-                    <p className="text-bright-yellow font-semibold text-xl">Maria Raga, Former CEO, Depop.com</p>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-              <CarouselItem>
-                <Card className="bg-sky-400 border-bright-yellow border-4">
-                  <CardContent className="p-10">
-                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"A passionate defense of entreprenuership and the challenges we face"</p>
-                    <p className="text-bright-yellow font-semibold text-xl">Hiroki Takuchi, Founder & CEO of GoCardless</p>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-              <CarouselItem>
-                <Card className="bg-sky-400 border-bright-yellow border-4">
-                  <CardContent className="p-10">
-                    <p className="text-white italic mb-6 text-2xl md:text-3xl leading-relaxed">"In Start-Up Century, James captures the forces at play to empower people with ideas to build."</p>
-                    <p className="text-bright-yellow font-semibold text-xl">Scott Belsky, Founder of Behance, Author of the Messy Middle</p>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious className="text-bright-yellow hover:text-sky-400 hover:bg-bright-yellow" />
-            <CarouselNext className="text-bright-yellow hover:text-sky-400 hover:bg-bright-yellow" />
-          </Carousel>
+          <h2 className="text-4xl font-bold mb-12 text-center">What People Are Saying</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div 
+                key={index}
+                className="bg-sky-300 p-6 rounded-lg shadow-lg"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <p className="text-xl italic mb-4">{testimonial.quote}</p>
+                <p className="font-semibold">{testimonial.author}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Author Section */}
-      <section className="bg-sky-400 py-16">
+      <section id="author" className="py-20 bg-sky-300">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/3 mb-8 md:mb-0">
-              <img src="/assets/james-wise-headshot.jpg" alt="James Wise" className="rounded-full mx-auto object-cover w-48 h-48 border-4 border-bright-yellow" />
+              <motion.img 
+                src="/assets/james-wise-headshot.jpg" 
+                alt="James Wise" 
+                className="rounded-full mx-auto object-cover w-48 h-48 border-4 border-bright-yellow"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+              />
             </div>
-            <div className="md:w-2/3">
-              <h2 className="text-3xl font-bold mb-4 text-bright-yellow">About the Author</h2>
-              <p className="text-lg mb-6 text-white">James Wise has worked with some of the most successful technology companies of the last decade. As a venture capitalist and Partner at Balderton, a fund that's backed over 20 'unicorn' start-ups, he has supported entrepreneurs as they've grown from their living rooms to Nasdaq IPOs.</p>
-              <p className="text-lg mb-6 text-white">He sits on the board of companies focused on the global challenges of sustainability, artificial intelligence and healthcare. James is a member of the UK Government's Industrial Development Advisory Board, a trustee of the charity Demos and has written and contributed widely for publications like The Times, The Guardian, The Telegraph and the BBC.</p>
+            <div className="md:w-2/3 md:pl-12">
+              <h2 className="text-3xl font-bold mb-4">About the Author</h2>
+              <p className="text-lg mb-6">James Wise has worked with some of the most successful technology companies of the last decade. As a venture capitalist and Partner at Balderton, a fund that's backed over 20 'unicorn' start-ups, he has supported entrepreneurs as they've grown from their living rooms to Nasdaq IPOs.</p>
+              <p className="text-lg mb-6">He sits on the board of companies focused on the global challenges of sustainability, artificial intelligence and healthcare. James is a member of the UK Government's Industrial Development Advisory Board, a trustee of the charity Demos and has written and contributed widely for publications like The Times, The Guardian, The Telegraph and the BBC.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="bg-bright-yellow text-sky-400 py-16">
+      <section className="bg-bright-yellow text-sky-400 py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Shape the Future?</h2>
+          <h2 className="text-4xl font-bold mb-6">Ready to Shape the Future?</h2>
           <p className="text-xl mb-8">Get your copy of "Start-Up Century" today and embark on your entrepreneurial journey.</p>
-          <Button className="bg-sky-400 text-bright-yellow hover:bg-sky-500" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>Order Now</Button>
-        </div>
-      </section>
-
-      {/* Social Media Section */}
-      <section className="relative bg-cover bg-center py-20" style={{ backgroundImage: "url('/assets/background.png')" }}>
-        <div className="absolute inset-0 bg-black opacity-30"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col items-center justify-center">
-            <h2 className="text-3xl font-bold mb-6 text-white">Connect with James Wise</h2>
-            <div className="flex space-x-4">
-              <a href="https://www.instagram.com/startupcentury" target="_blank" rel="noopener noreferrer" className="text-white hover:text-bright-yellow transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              </a>
-              <a href="https://x.com/jamespaulwise" target="_blank" rel="noopener noreferrer" className="text-white hover:text-bright-yellow transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-              </a>
-            </div>
-          </div>
+          <Button className="bg-sky-400 text-bright-yellow hover:bg-sky-500 text-xl px-8 py-4" onClick={() => window.open('https://www.amazon.co.uk/Start-Up-Century-becoming-entrepreneurs-everyone/dp/1399410598', '_blank')}>
+            Order Now <ArrowRight className="ml-2" />
+          </Button>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="bg-sky-500 text-bright-yellow py-8">
         <div className="container mx-auto px-4 text-center">
+          <div className="flex justify-center space-x-4 mb-4">
+            <a href="https://www.instagram.com/startupcentury" target="_blank" rel="noopener noreferrer" className="text-bright-yellow hover:text-white transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://x.com/jamespaulwise" target="_blank" rel="noopener noreferrer" className="text-bright-yellow hover:text-white transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+          </div>
           <p>&copy; 2024 Start-Up Century. All rights reserved.</p>
         </div>
       </footer>
