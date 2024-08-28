@@ -138,8 +138,8 @@ const Index = () => {
       </section>
 
       {/* Social Media Section */}
-      <section className="relative bg-cover bg-center py-20" style={{ backgroundImage: "url('/assets/james-wise-book.jpg')" }}>
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+      <section className="relative bg-cover bg-center py-20" style={{ backgroundImage: "url('/assets/background.png')" }}>
+        <div className="absolute inset-0 bg-black opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-3xl font-bold mb-6 text-white">Connect with James Wise</h2>
