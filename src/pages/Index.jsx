@@ -118,6 +118,8 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/3 mb-8 md:mb-0">
               <img src="/assets/james-wise-headshot.jpg" alt="James Wise" className="rounded-full mx-auto object-cover w-48 h-48 border-4 border-bright-yellow" />
+              {/* Example of how to use another image from the assets folder */}
+              <img src="/assets/example-image.jpg" alt="Example" className="mt-4 rounded-lg mx-auto object-cover w-64 h-auto" />
             </div>
             <div className="md:w-2/3">
               <h2 className="text-3xl font-bold mb-4 text-bright-yellow">About the Author</h2>
