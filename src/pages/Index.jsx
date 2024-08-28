@@ -17,8 +17,9 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-sky-400 text-bright-yellow py-20 wave-container">
-        <div className="wave-background"></div>
+      <section className="bg-sky-400 text-bright-yellow py-20 ripple-container">
+        <div className="ripple-background"></div>
+        <div className="ripple-overlay"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-6xl md:text-8xl font-bold mb-8">START-UP CENTURY OUT NOW</h1>
           <p className="text-2xl md:text-4xl mb-12">START-UP CENTURY: WHY WE'RE ALL BECOMING ENTREPRENEURS AND HOW TO MAKE IT WORK FOR EVERYONE</p>
