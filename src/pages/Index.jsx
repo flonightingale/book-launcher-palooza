@@ -5,6 +5,15 @@ import { ArrowRight, ArrowDown, X } from "lucide-react";
 import TestimonialCard from '../components/TestimonialCard';
 
 const Index = () => {
+  useEffect(() => {
+    const preloadImages = ['/assets/background.png', '/assets/Book cover.jpg'];
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => console.log(`Image loaded successfully: ${src}`);
+      img.onerror = () => console.error(`Failed to load image: ${src}`);
+    });
+  }, []);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHeroOverlay, setShowHeroOverlay] = useState(true);
   const scrollRef = useRef(null);
@@ -67,7 +76,7 @@ const Index = () => {
           </div>
         </div>
         <div className="absolute inset-0 z-0 hidden md:block">
-          <img src="/assets/Screenshot 2024-08-28 at 17.06.24.png" alt="Background" className="w-full h-full object-cover" />
+          <img src="/assets/background.png" alt="Background" className="w-full h-full object-cover" />
         </div>
         <motion.div 
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 cursor-pointer"
@@ -96,6 +105,10 @@ const Index = () => {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/placeholder.svg';
+                }}
               />
             </div>
             <div className="md:w-1/2 md:pl-12">
