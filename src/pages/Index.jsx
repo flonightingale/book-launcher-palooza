@@ -76,7 +76,15 @@ const Index = () => {
           </div>
         </div>
         <div className="absolute inset-0 z-0 hidden md:block">
-          <img src="/assets/background.png" alt="Background" className="w-full h-full object-cover" />
+          <img 
+            src="/assets/background.png" 
+            alt="Background" 
+            className="w-full h-full object-cover" 
+            onError={(e) => {
+              console.error('Failed to load background image');
+              e.target.style.display = 'none';
+            }}
+          />
         </div>
         <motion.div 
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 cursor-pointer"
@@ -106,6 +114,7 @@ const Index = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
                 onError={(e) => {
+                  console.error('Failed to load book cover image');
                   e.target.onerror = null;
                   e.target.src = '/placeholder.svg';
                 }}
