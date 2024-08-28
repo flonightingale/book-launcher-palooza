@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useRef as useRefFromReact } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -12,7 +13,7 @@ import "../styles/waveAnimation.css";
 import { createWaves } from "../utils/rippleEffect";
 
 const Index = () => {
-  const waveContainerRef = useRef(null);
+  const waveContainerRef = useRefFromReact(null);
 
   useEffect(() => {
     if (waveContainerRef.current) {
