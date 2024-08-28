@@ -56,7 +56,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-sky-400 md:bg-transparent">
-        <div className="absolute inset-0 bg-black opacity-20 z-10 hidden md:block"></div>
+        <div className="absolute inset-0 bg-black opacity-30 z-10 hidden md:block"></div>
         <div className="container mx-auto px-4 z-30 relative">
           <div className={`text-center md:text-left ${showHeroOverlay ? 'md:bg-black md:bg-opacity-50 md:p-8 md:rounded-lg' : ''} relative`}>
             {showHeroOverlay && (
@@ -79,7 +79,8 @@ const Index = () => {
           <img 
             src="/assets/background.jpeg" 
             alt="Background" 
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-cover"
+            style={{ filter: 'brightness(0.7)' }}
             onError={(e) => {
               console.error('Failed to load background image');
               e.target.style.display = 'none';
