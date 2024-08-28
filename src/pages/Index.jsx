@@ -6,7 +6,7 @@ import TestimonialCard from '../components/TestimonialCard';
 
 const Index = () => {
   useEffect(() => {
-    const preloadImages = ['/assets/background.png', '/assets/Book cover.jpg'];
+    const preloadImages = ['/assets/background.jpeg', '/assets/Book cover.jpg'];
     preloadImages.forEach((src) => {
       const img = new Image();
       img.src = src;
@@ -77,7 +77,7 @@ const Index = () => {
         </div>
         <div className="absolute inset-0 z-0 hidden md:block">
           <img 
-            src="/assets/background.png" 
+            src="/assets/background.jpeg" 
             alt="Background" 
             className="w-full h-full object-cover" 
             onError={(e) => {
