@@ -1,18 +1,39 @@
 export function createWaves(element) {
-  for (let i = 0; i < 3; i++) {
+  const waveCount = 6;
+  const waves = [];
+
+  for (let i = 0; i < waveCount; i++) {
     const wave = document.createElement('div');
     wave.classList.add('wave');
     element.appendChild(wave);
+    waves.push(wave);
   }
 
-  // Add subtle mouse interaction
-  element.addEventListener('mousemove', (event) => {
-    const { clientX, clientY } = event;
-    const { left, top, width, height } = element.getBoundingClientRect();
-    const x = (clientX - left) / width;
-    const y = (clientY - top) / height;
+  function animateWaves(mouseX, mouseY) {
+    waves.forEach((wave, index) => {
+      const size = (index + 1) * 10;
+      const x = mouseX - size / 2;
+      const y = mouseY - size / 2;
+      wave.style.left = `${x}px`;
+      wave.style.top = `${y}px`;
+      wave.style.width = `${size}px`;
+      wave.style.height = `${size}px`;
+    });
+  }
 
-    element.style.setProperty('--mouse-x', x);
-    element.style.setProperty('--mouse-y', y);
+  let mouseX = element.clientWidth / 2;
+  let mouseY = element.clientHeight / 2;
+
+  element.addEventListener('mousemove', (event) => {
+    const rect = element.getBoundingClientRect();
+    mouseX = event.clientX - rect.left;
+    mouseY = event.clientY - rect.top;
   });
+
+  function update() {
+    animateWaves(mouseX, mouseY);
+    requestAnimationFrame(update);
+  }
+
+  update();
 }
